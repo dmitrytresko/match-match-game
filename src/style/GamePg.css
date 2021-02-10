@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 100vw;
+    min-height: 100vh;
+
+    background: radial-gradient(rgb(226, 241, 255), rgb(27, 98, 165));
+}
+
+.game__container--easy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 25%;
+    min-width: 285px;
+    margin-top: 25px;
+    perspective: 500px;
+}
+
+.game__container--medium {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 40%;
+    min-width: 285px;
+    margin-top: 25px;
+    perspective: 500px;
+}
+
+.game__container--hard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+    min-width: 285px;
+    margin-top: 25px;
+    perspective: 500px;
+}
+
+.game__info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    width: 100%;
+    min-width: 285px;
+    margin-bottom: 25px;
+}
+
+.game__info-container--inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 30%;
+    min-width: 75px;
+}
+
+.game__info-title {
+    margin-bottom: 3px;
+
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: "Chakra Petch", sans-serif;
+    color: black;
+}
+
+.game__info-handler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 0.25em 0 0.25em 0;
+
+    font-size: 1.25rem;
+    font-family: "Chakra Petch", sans-serif;
+    color: white;
+
+    border: 2px solid black;
+    border-radius: 2px;
+    background: black;
+}
+
+.game__main-container--easy {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 23%);
+    grid-gap: 10px;
+
+    width: 100%;
+    min-width: 285px;
+    margin-bottom: 30px;
+}
+
+.game__main-container--medium {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(6, 15.45%);
+    grid-gap: 10px;
+
+    width: 100%;
+    min-width: 285px;
+    margin-bottom: 30px;
+}
+
+.game__main-container--hard {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(8, 11.4%);
+    grid-gap: 10px;
+
+    width: 100%;
+    min-width: 285px;
+    margin-bottom: 30px;
+}
+
+.game__card {
+    min-width: 62.5px;
+    height: 55px;
+
+    position: relative;
+    cursor: pointer;
+
+    border-radius: 10px;
+}
+
+.game__card-face {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+    border-radius: 7.5px;
+    border: 1px solid rgb(4, 52, 124);
+
+    position: absolute;
+    transition: transform 300ms ease-in-out;
+}
+
+.game__card-flipped .game__card-back {
+    transform: rotateY(180deg);
+}
+
+.game__card-flipped .game__card-front {
+    transform: rotateY(0);
+}
+
+.game__card-flipped .game__card-corner--top-left {
+    top: -6%;
+    left: -4%;
+}
+
+.game__card-flipped .game__card-corner--top-right {
+    top: -6%;
+    right: -4%;
+}
+
+.game__card-flipped .game__card-corner--bottom-left {
+    bottom: -7%;
+    left: -4%;
+}
+
+.game__card-flipped .game__card-corner--bottom-right {
+    bottom: -7%;
+    right: -4%;
+}
+
+.game__card-back {
+    background: rgb(0, 0, 0);
+    transition: all 300ms ease-out;
+}
+
+.game__card:hover .game__card-back {
+    background: rgb(255, 255, 255, 0.7);
+}
+
+.game__card-front {
+    background: rgb(255, 255, 255, 0.7);
+    transform: rotateY(-180deg);
+}
+
+.game__card-corner {
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    transition: width 300ms ease-in-out, height 300ms ease-in-out;
+}
+
+.game__card-face:hover .game__card-corner {
+    width: 23.5px;
+    height: 23.5px;
+}
+
+.game__card-corner--top-left {
+    top: -0.5%;
+    left: -0.5%;
+
+    transition: top 300ms ease-in-out, left 300ms ease-in-out;
+}
+
+.game__card:hover .game__card-corner--top-left {
+    top: -6%;
+    left: -4%;
+}
+
+.game__card-corner--top-right {
+    top: -0.5%;
+    right: -0.5%;
+
+    transform: rotate(90deg);
+    transition: top 300ms ease-in-out, right 300ms ease-in-out;
+}
+
+.game__card:hover .game__card-corner--top-right {
+    top: -6%;
+    right: -4%;
+}
+
+.game__card-corner--bottom-left {
+    bottom: -0.5%;
+    left: -0.5%;
+
+    transform: rotate(270deg);
+    transition: bottom 300ms ease-in-out, left 300ms ease-in-out;
+}
+
+.game__card:hover .game__card-corner--bottom-left {
+    bottom: -7%;
+    left: -4%;
+}
+
+.game__card-corner--bottom-right {
+    bottom: -0.5%;
+    right: -0.5%;
+
+    transform: rotate(180deg);
+    transition: bottom 300ms ease-in-out, right 300ms ease-in-out;
+}
+
+.game__card:hover .game__card-corner--bottom-right {
+    bottom: -7%;
+    right: -4%;
+}
+
+.game__card-question {
+    width: 32px;
+    height: 32px;
+
+    top: calc(50% - 16px);
+    right: calc(50% - 16px);
+
+    position: absolute;
+}
+
+.game__restart-btn {
+    min-width: 60px;
+    padding: 0.465em 1.25em;
+    margin-bottom: 25px;
+
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: bold;
+    font-family: "Chakra Petch", sans-serif;
+    color: rgb(209, 31, 0);
+
+    background: rgb(255, 255, 255, 0.7);
+    border: 2px solid rgb(209, 31, 0);
+    border-radius: 2px;
+
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.game__restart-btn:hover {
+    color: rgb(209, 31, 0);
+
+    background: black;
+    border: 2px solid rgb(209, 31, 0);
+    border-radius: 2px;
+
+    box-shadow: 0px 1px 10px 5px rgb(209, 31, 0);
+}
+
+.game__card-front-image {
+    width: 32px;
+    height: 32px;
+}
+
+.matched .game__card-face {
+    animation: hideFace 1.5s ease-in-out forwards;
+}
+
+@keyframes hideFace {
+    100% {
+        background: transparent;
+        border-color: transparent;
+    }
+}
+
+.matched .game__card-front-image {
+    animation: hideFront 1.5s ease-out forwards;
+}
+
+@keyframes hideFront {
+    100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+.matched .game__card-corner {
+    animation: hideCorner 1.5s ease-in-out forwards;
+}
+
+@keyframes hideCorner {
+    100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+@media (max-width: 812px) {
+    .game__main-container--medium {
+        grid-template-columns: repeat(4, auto);
+    }
+
+    .game__main-container--hard {
+        grid-template-columns: repeat(4, auto);
+    }
+}

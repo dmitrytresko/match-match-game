@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+
+span {
+    font-weight: bold;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 100vw;
+    min-height: 100vh;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/background.jpg) center center;
+    background-size: cover;
+}
+
+.profile__personal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.profile__user-icon--large {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 10px;
+
+    cursor: pointer;
+}
+
+.profile__user-name {
+    margin-bottom: 10px;
+
+    text-align: center;
+    font-size: calc(10px + 1.5em);
+    font-family: "Chakra Petch", sans-serif;
+    color: whitesmoke;
+}
+
+.profile__email {
+    text-align: center;
+    font-size: calc(10px + 1em);
+    font-family: "Chakra Petch", sans-serif;
+    color: whitesmoke;
+}
+
+.profile__records {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 50%;
+    min-width: 275px;
+    min-height: 250px;
+    padding: 25px 15px 75px 5px;
+    margin-bottom: 40px;
+
+    border: 2px solid rgb(209, 31, 0);
+    border-radius: 2px;
+    background: rgb(255, 255, 255, 0.7);
+}
+
+.profile__records--inner {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.profile__records-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "Chakra Petch", sans-serif;
+    text-decoration: underline;
+    color: rgb(209, 31, 0);
+}
+
+.profile__records-paragraph {
+    font-size: 1.2rem;
+    font-family: "Chakra Petch", sans-serif;
+    color: black;
+}
