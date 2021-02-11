@@ -16,11 +16,15 @@ export default function CongratulationPg(props) {
 
     return (
         <div className="congratulation">
+            <div className="congratulations__image-container">
+                <img className="congratulations__puzzle" alt="Puzzle" src={puzzleImg}></img>
+            </div>
             <h1 className="congratulation__title">Congratulations, {firstName}!</h1>
             <h2 className="congratulation__subtitle">You completed the game on {difficulty} level!</h2>
             <div className="congratulation__results-container">
                 <p className="congratulation__results-title">Your result:</p>
-                <span className="congratulation__results-stat">Time: {duration.min}:{duration.sec}</span>
+                <span className="congratulation__results-stat">Time: {duration.min >= 10 ? duration.min : "0" + duration.min}:
+                        {duration.sec >= 10 ? duration.sec : "0" + duration.sec}</span>
                 <span className="congratulation__results-stat">Steps: {steps}</span>
             </div>
             <button className="congratulation__new-game-btn" onClick={onNewGameClickGandler}>New Game</button>

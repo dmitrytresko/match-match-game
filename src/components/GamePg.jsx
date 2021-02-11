@@ -134,7 +134,7 @@ export default function GameGg(props) {
 
                     console.log("Finished games: ", finishedGamesInfo);
 
-                    setTimeout(() => history.push('/congratulations'), 1500);
+                    setTimeout(() => history.push('/congratulations'), 1250);
                 }
             }
         }
