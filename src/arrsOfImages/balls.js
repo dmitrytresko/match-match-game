@@ -7,7 +7,7 @@ import beachBallPinkImg from "../img/card/front/balls/beach-ball-pink.png";
 import beachBallImg from "../img/card/front/balls/beach-ball.png";
 import billiardBlackBallImg from "../img/card/front/balls/black-eight-billiard-ball.png";
 import bowlingBallImg from "../img/card/front/balls/bowling.png";
-import christmasBallRedImg from "../img/card/front/balls/christmas-ball.png";
+import christmasBallRedImg from "../img/card/front/balls/christmas-ball-red.png";
 import christmasBallImg from "../img/card/front/balls/christmas-ball.png";
 import cricketBallImg from "../img/card/front/balls/cricket.png";
 import crystalBallStarsImg from "../img/card/front/balls/crystal-ball-stars.png";
