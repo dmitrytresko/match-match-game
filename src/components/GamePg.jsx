@@ -16,6 +16,7 @@ export default function GameGg(props) {
     const history = useHistory();
 
     const [time, setTime] = useState({ sec: 0, min: 0 });
+    const [intervalID, setIntervalD] = useState(null);
     const [steps, setSteps] = useState(0);
     const [cards, setCards] = useState([]);
     const [openedCards, setOpenedCards] = useState([]);
@@ -26,6 +27,13 @@ export default function GameGg(props) {
 
     let secCount = time.sec;
     let minCount = time.min;
+
+    const stopTimer = useCallback(() => {
+        if (intervalID) {
+            clearInterval(intervalID);
+            setIntervalD(null);
+        }
+    }, [intervalID]);
 
     const onRestartClick = useCallback(() => {
         const isConfirmed = window.confirm(`Are you sure that you want to restart the game?\n\nNOTE: Your current score will not be saved.`);
@@ -85,6 +93,7 @@ export default function GameGg(props) {
         };
 
         const intID = setInterval(tick, 1000);
+        setIntervalD(intID);
 
         return () => clearInterval(intID);
     }, [time]);
@@ -97,6 +106,36 @@ export default function GameGg(props) {
 
             if (secondOpenedCard && firstOpenedCard.id === secondOpenedCard.id) {
                 setMatchedCards([...matchedCards, secondOpenedCard.id]);
+
+                if (matchedCards.length + 1 === cards.length / 2) {
+                    stopTimer();
+
+                    const { firstName, lastName } = JSON.parse(localStorage.getItem('profileInfo'));
+                    const finishedGamesInfo = JSON.parse(localStorage.getItem('finishedGamesInfo'));
+
+                    const gameInfo = {
+                        firstName,
+                        lastName,
+                        difficulty,
+                        duration: time,
+                        steps: steps + 1
+                    }
+
+                    console.log("Game info: ", gameInfo);
+
+                    if (finishedGamesInfo !== null) {
+                        finishedGamesInfo.push(gameInfo);
+                        localStorage.setItem('finishedGamesInfo', JSON.stringify(finishedGamesInfo));
+                    } else {
+                        const newArrOfFinishedGames = [];
+                        newArrOfFinishedGames.push(gameInfo);
+                        localStorage.setItem('finishedGamesInfo', JSON.stringify(newArrOfFinishedGames));
+                    }
+
+                    console.log("Finished games: ", finishedGamesInfo);
+
+                    setTimeout(() => history.push('/congratulations'), 1500);
+                }
             }
         }
 

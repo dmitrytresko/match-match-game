@@ -15,7 +15,7 @@ function App() {
         <Route path="/welcome" component={WelcomePg}></Route>
         <Route path="/game" component={GamePg}></Route>
         <Route path="/profile" component={ProfilePg}></Route>
-        <Route path="/congratulations"></Route>
+        <Route path="/congratulations" component={CongratulationPg}></Route>
         <Route path="/records"></Route>
       </Switch>
     </Router>
