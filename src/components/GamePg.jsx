@@ -188,7 +188,7 @@ export default function GameGg(props) {
                         const isConfirmed = window.confirm(`Are you sure that you want to finish the game and log out?\n\nNOTE: Your current score will not be saved.`);
                         if (isConfirmed) {
                             history.push('/welcome');
-                            localStorage.clear();
+                            localStorage.removeItem('profileInfo');
                         }
                     }} className="header__link">
                         <img src={logOutImg} className="header-icon" alt="Log out icon"></img>
@@ -251,6 +251,6 @@ export default function GameGg(props) {
 
                 {difficulty === "hard" ? "" : <button button className="game__restart-btn" onClick={onRestartClick}>Restart</button>}
             </div>
-        </div >
+        </div>
     )
 }

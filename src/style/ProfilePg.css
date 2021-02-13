@@ -53,12 +53,11 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
 
     width: 50%;
     min-width: 275px;
     min-height: 250px;
-    padding: 25px 15px 75px 5px;
+    padding: 25px 15px 0 15px;
     margin-bottom: 40px;
 
     border: 2px solid rgb(209, 31, 0);
@@ -73,6 +72,9 @@ span {
 }
 
 .profile__records-title {
+    margin-top: 5px;
+    margin-bottom: 25px;
+
     font-size: 1.5rem;
     font-weight: bold;
     font-family: "Chakra Petch", sans-serif;
@@ -80,7 +82,17 @@ span {
     color: rgb(209, 31, 0);
 }
 
+.profile__records-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    margin-bottom: 25px;
+}
+
 .profile__records-paragraph {
+    text-align: center;
     font-size: 1.2rem;
     font-family: "Chakra Petch", sans-serif;
     color: black;

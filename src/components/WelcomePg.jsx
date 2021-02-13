@@ -64,7 +64,7 @@ export default function WelcomePg(props) {
                             <Link to="/welcome" onClick={() => {
                                 const isConfirmed = window.confirm(`Are you sure that you want to log out?`);
                                 if (isConfirmed) {
-                                    localStorage.clear();
+                                    localStorage.removeItem('profileInfo');
                                 }
                             }} className="header__link">
                                 <img src={logOutImg} className="header-icon" alt="Log out icon"></img>

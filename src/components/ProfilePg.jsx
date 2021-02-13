@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import puzzleImg from "../img/puzzle.png";
 import backImg from "../img/back-arrow.png";
 import logOutImg from "../img/log-out.png";
@@ -9,6 +9,8 @@ import "../App.css";
 
 export default function ProfilePg(props) {
     const { firstName, lastName, email } = JSON.parse(localStorage.getItem('profileInfo'));
+    const finishedGames = JSON.parse(localStorage.getItem("finishedGamesInfo"));
+    const history = useHistory();
 
     return (
         <div className="profile">
@@ -22,7 +24,13 @@ export default function ProfilePg(props) {
                         <img src={backImg} className="header-icon" alt="User icon"></img>
                         <p className="header__link--title">Welcome</p>
                     </Link>
-                    <Link to="/welcome" onClick={() => localStorage.clear()} className="header__link">
+                    <Link onClick={() => {
+                        const isConfirmed = window.confirm(`Are you sure that you want to log out?`);
+                        if (isConfirmed) {
+                            history.push('/welcome');
+                            localStorage.removeItem('profileInfo');
+                        }
+                    }} className="header__link">
                         <img src={logOutImg} className="header-icon" alt="Log out icon"></img>
                         <p className="header__link--title">Log out</p>
                     </Link>
@@ -35,11 +43,20 @@ export default function ProfilePg(props) {
                 <p className="profile__email"><span>email:&#32;</span>{email}</p>
             </div>
             <div className="profile__records">
-                <h2 className="profile__records-title">Details:</h2>
+                <h2 className="profile__records-title">Your games:</h2>
                 <div className="profile__records--inner">
-                    <p className="profile__records-paragraph">Last game's difficulty:&#32;<span>?</span></p>
-                    <p className="profile__records-paragraph">Last game's duration:&#32;<span>?</span></p>
-                    <p className="profile__records-paragraph">Last game's steps:&#32;<span>?</span></p>
+                    {finishedGames.map((game) => {
+                        if (firstName === game.firstName && lastName === game.lastName) {
+                            return (
+                                <div className="profile__records-group">
+                                    <p className="profile__records-paragraph">Difficulty:&#32;<span>{game.difficulty}</span></p>
+                                    <p className="profile__records-paragraph">Duration:&#32;<span>{game.duration.min}:{game.duration.sec}</span></p>
+                                    <p className="profile__records-paragraph">Steps:&#32;<span>{game.steps}</span></p>
+                                </div>
+                            )
+                        }
+                        return "";
+                    })}
                 </div>
             </div>
         </div>
